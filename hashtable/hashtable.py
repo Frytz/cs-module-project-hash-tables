@@ -121,16 +121,16 @@ class HashTable:
         Implement this, and/or FNV-1.
         """
         
-        # initialize hash_index as 5381
+        # initialize hash_index as 1776
         # 5381 is only used for historical purposes
-        hash_index = 5381
+        hash_index = 1776
 
         bytes_to_process = key.encode()
 
         for byte in bytes_to_process:
 
             # 33 is only used for historical purposes
-            hash_index *= 33
+            hash_index *= 83
             hash_index += byte
 
         return hash_index
