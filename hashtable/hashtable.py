@@ -99,9 +99,11 @@ class HashTable:
         """
 
         # 64-bit prime used for calculations
+        # The FNV_prime is the 64-bit FNV prime value: 1099511628211 (in hex, 0x100000001b3).
         FNV_PRIME = 1099511628211
 
         # 64-bit offset basis used for calculations
+        # The FNV_offset_basis is the 64-bit FNV offset basis value: 14695981039346656037 (in hex, 0xcbf29ce484222325).
         OFFSET_BASIS = 14695981039346656037
 
         hash_index = OFFSET_BASIS
@@ -121,16 +123,17 @@ class HashTable:
         Implement this, and/or FNV-1.
         """
         
-        # initialize hash_index as 1776
+        # initialize hash_index as 5381
         # 5381 is only used for historical purposes
-        hash_index = 1776
+        hash_index = 5381
+
 
         bytes_to_process = key.encode()
 
         for byte in bytes_to_process:
 
-            # 33 is only used for historical purposes
-            hash_index *= 83
+            # 83 is only used for historical purposes
+            hash_index *= 33
             hash_index += byte
 
         return hash_index
